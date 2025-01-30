@@ -268,21 +268,3 @@ require (
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 	sigs.k8s.io/yaml v1.4.0 // indirect
 )
-
-replace (
-
-	// atomicgo.dev started to return 404
-	atomicgo.dev/cursor => github.com/atomicgo/cursor v0.2.0
-	atomicgo.dev/keyboard => github.com/atomicgo/keyboard v0.2.9
-	atomicgo.dev/schedule => github.com/atomicgo/schedule v0.1.0
-	// Many functions of terraform was converted to internal to avoid use as a library after v0.15.3. This means that we
-	// can't use terraform as a library after v0.15.3, so we pull that in here.
-	github.com/hashicorp/terraform => github.com/hashicorp/terraform v0.15.3
-
-	// This is necessary to workaround go modules error with terraform importing vault incorrectly.
-	// See https://github.com/hashicorp/vault/issues/7848 for more info
-	github.com/hashicorp/vault => github.com/hashicorp/vault v1.4.2
-
-	// TFlint introduced a BUSL license in v0.51.0, so we have to be careful not to update past this version.
-	github.com/terraform-linters/tflint => github.com/terraform-linters/tflint v0.50.3
-)
